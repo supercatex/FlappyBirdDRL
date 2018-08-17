@@ -9,7 +9,7 @@ class Game:
     
     def __init__(self):
         pygame.init()
-        self.FPS = 600
+        self.FPS = 60
         self.clock = pygame.time.Clock()
         self.screen_width = 288
         self.screen_height = 512
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         if r % 100 in range(1) or s > 10:
             game.FPS = 60
         else:
-            game.FPS = 60000
+            game.FPS = 60
             
         #action = pygame.key.get_pressed()[K_SPACE]
         prev_action = curr_action
@@ -156,7 +156,7 @@ if __name__ == '__main__':
         if terminal:
             r = r + 1
             s = 0
-            agent.replay()
+            #agent.replay()
         
         if reward == 1:
             s = s + 1
@@ -164,5 +164,5 @@ if __name__ == '__main__':
         t = t + 1
         print(r, '\t', t, '\t', s, '\t', reward, terminal, '\t', q, '\t', agent.loss, '\t', agent.epsilon, curr_state)
         
-        if t % 1000 == 0:
-            agent.save_data()
+        #if t % 1000 == 0:
+            #agent.save_data()
